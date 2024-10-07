@@ -49,6 +49,19 @@ img {
     box-shadow: 0 2px 3px 0 #ccc;
     background-color: white;
 }
+#home{
+    text-decoration: none;
+    color: white;
+}
+#create {
+    text-decoration: none;
+    color: black;
+}
+button{
+    padding: 0;
+    border: none;
+    background: none;
+}
 
 .tag_header,
 .profile_header {
@@ -59,13 +72,15 @@ img {
 }
 
 .Home,
-.Create {
+.Create
+{
     padding: 0px 15px;
     width: 100%;
+    border:none !important;
 }
 
 .Home {
-    background-color: black;
+    background-color: #2a3c95;
     color: white;
     border-radius: 30px;
     padding: 12px;
@@ -153,7 +168,7 @@ img {
     padding: 12px;
     width: 150px;
     height: 40px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .menu ul.show {
@@ -173,7 +188,7 @@ img {
 
 .menu:hover ul{
     display: block;
-} 
+}
 
 .noti-content,
 .chat-content {

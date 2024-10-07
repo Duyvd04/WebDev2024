@@ -42,7 +42,6 @@ document.getElementById('showMoreBtn').addEventListener('click', function () {
 });
 
 
-
 const logo = document.getElementById('icon');
 
 logo.addEventListener('click', () => {
@@ -82,8 +81,8 @@ chatIcon.addEventListener('click', () => toggleDropdown(chatContent));
 moreIcon.addEventListener('click', () => toggleDropdown(moreContent));
 moreIcon.addEventListener('click', () => toggleDropdown(menuContent));
 
-menuButton.addEventListener('click', function() {
-   
+menuButton.addEventListener('click', function () {
+
     menuContent.classList.toggle('show');
 });
 
@@ -98,3 +97,33 @@ document.addEventListener('click', (event) => {
         menuContent.classList.remove('show');
     }
 });
+
+
+// Search Functionality
+document.getElementById('search').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.card'); // Get all image cards
+    let matchesFound = false; // To check if there's any match
+
+    cards.forEach(card => {
+        const altText = card.querySelector('img').getAttribute('alt').toLowerCase(); // Get alt text of the image
+        const dataName = card.getAttribute('data-name').toLowerCase(); // Get data-name attribute of the card
+
+        // Check if search value matches alt text or data-name
+        if (altText.includes(searchValue) || dataName.includes(searchValue)) {
+            card.style.display = ''; // Show the image card
+            matchesFound = true; // A match is found
+        } else {
+            card.style.display = 'none'; // Hide the image card
+        }
+    });
+
+    // Change layout to row if search has matches, otherwise revert to column
+    if (matchesFound && searchValue !== '') {
+        cardColumn.style.flexDirection = 'row';
+    } else {
+        cardColumn.style.flexDirection = 'column';
+    }
+});
+
+
